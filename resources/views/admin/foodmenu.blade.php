@@ -22,7 +22,7 @@
 
       <div class="container">
         <div row>
-          <div class="py-5 my-5">
+          <div class="py-4 my-5">
             <form action="{{url('/uploadfood')}}" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
@@ -46,6 +46,33 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+          </div>
+          <hr style="border: 10px; border-top: 1px solid rgb(255, 255, 255);">
+          <div>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Food Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                @foreach ($users as $user)
+                  <tr>
+                    <td>{{$user->title}}</td>
+                    <td>{{$user->description}}</td>
+                    <td>{{$user->price}}</td>
+                    <td><img src="/foodimage/{{$user->image}}"></td>
+                    <td><a href="{{url('/deletemenu', $user->id)}}">Delete</a></td>
+
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
