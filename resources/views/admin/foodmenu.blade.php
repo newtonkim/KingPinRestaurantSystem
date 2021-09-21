@@ -56,7 +56,8 @@
                   <th scope="col">Description</th>
                   <th scope="col">Price</th>
                   <th scope="col">Image</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Delete</th>
+                  <th scope="col">Update</th>
                 </tr>
               </thead>
               <tbody>
@@ -67,7 +68,8 @@
                     <td>{{$user->description}}</td>
                     <td>{{$user->price}}</td>
                     <td><img src="/foodimage/{{$user->image}}"></td>
-                    <td><a href="{{url('/deletemenu', $user->id)}}">Delete</a></td>
+                    <td><a href="{{url('/deletemenu', $user->id)}}"> <button class="btn btn-danger">Delete</button></a></td>
+                    <td><a href="{{url('/updatemenu', $user->id)}}"><button class="btn btn-info">Update</button></a></td>
 
                   </tr>
                 @endforeach

@@ -21,6 +21,8 @@ Route::get('/foodmenu', [AdminController::class, 'foodmenu']);
 Route::post('/uploadfood', [AdminController::class, 'upload']);
 Route::get('/deleteuser/{id}', [AdminController::class, 'deleteuser']);
 Route::get('/deletemenu/{id}', [AdminController::class, 'deletemenu']);
+Route::post('/update/{id}', [AdminController::class, 'update']);
+Route::get('/updatemenu/{id}', [AdminController::class, 'updatemenu']);
 Route::get('/redirects', [HomeController::class, 'redirects']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
