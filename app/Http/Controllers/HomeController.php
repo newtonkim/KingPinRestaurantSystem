@@ -20,7 +20,7 @@ class HomeController extends Controller
         if($usertype == '1'){
             return view('admin.adminhome');
         } else{
-            return view('/');
+            return view('/home');
         }
     }
 }

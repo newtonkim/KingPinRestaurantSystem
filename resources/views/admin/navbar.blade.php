@@ -8,7 +8,7 @@
       <span class="nav-link">Navigation</span>
     </li>
     <li class="nav-item menu-items">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{url('/users')}}">
         <span class="menu-icon">
           <i class="mdi mdi-speedometer"></i>
         </span>
@@ -37,16 +37,6 @@
           <i class="mdi mdi-chart-bar"></i>
         </span>
         <span class="menu-title">Reservation</span>
-      </a>
-    </li>
-      </div>
-    </li>
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-        <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
-        </span>
-        <span class="menu-title">Documentation</span>
       </a>
     </li>
   </ul>
