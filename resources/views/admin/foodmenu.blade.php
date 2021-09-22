@@ -27,17 +27,17 @@
               @csrf
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input type="text" class="form-control" name="title" placeholder="Insert title here" required>
+                  <input style="color:white; type="text" class="form-control" name="title" placeholder="Insert title here" required>
                 </div>
 
                 <div class="form-group">
                   <label for="description">Description</label>
-                  <input type="text" class="form-control" name="description" placeholder="Insert description here" required>
+                  <input style="color:white; type="text" class="form-control" name="description" placeholder="Insert description here" required>
                 </div>
 
                 <div class="form-group">
                   <label for="title">Price</label>
-                  <input type="number" class="form-control" name="price" placeholder="Ugx 1000" required>
+                  <input style="color:white; type="number" class="form-control" name="price" placeholder="Ugx 1000" required>
                 </div>
 
                 <div class="form-group">

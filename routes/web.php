@@ -22,6 +22,13 @@ Route::post('/uploadfood', [AdminController::class, 'upload']);
 Route::get('/deleteuser/{id}', [AdminController::class, 'deleteuser']);
 Route::get('/deletemenu/{id}', [AdminController::class, 'deletemenu']);
 Route::post('/update/{id}', [AdminController::class, 'update']);
+Route::post('/reservation', [AdminController::class, 'reservation']);
+Route::get('/viewreservation', [AdminController::class, 'viewreservation']);
+Route::get('/chef', [AdminController::class, 'chef']);
+Route::post('/uploadchef', [AdminController::class, 'uploadchef']);
+Route::get('/updatechef/{id}', [AdminController::class, 'updatechef']);
+Route::get('/deletechef/{id}', [AdminController::class, 'deletechef']);
+Route::post('/updatefoodchef/{id}', [AdminController::class, 'updatefoodchef']);
 Route::get('/updatemenu/{id}', [AdminController::class, 'updatemenu']);
 Route::get('/redirects', [HomeController::class, 'redirects']);
 
