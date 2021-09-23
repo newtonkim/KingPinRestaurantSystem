@@ -10,6 +10,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <title>King Pin Restaurant</title>
 <!--
@@ -29,6 +30,8 @@ https://templatemo.com/tm-558-klassy-cafe
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </head>
     
@@ -113,9 +116,6 @@ https://templatemo.com/tm-558-klassy-cafe
                             @endif
                             </li>
                         </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
@@ -124,37 +124,87 @@ https://templatemo.com/tm-558-klassy-cafe
     </header>
 
     <div id="top">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">Food Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Action</th>
-      </thead>
-      <tbody>
+        <table class="table table-borderless">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Food Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Action</th>
+          </thead>
+          <tbody>
 
-        @foreach ($cartdatas as $cartdata)
-          <tr>
-            <td>{{$cartdata->title}}</td>
-            <td>{{$cartdata->price}}</td>
-            <td>{{$cartdata->quantity}}</td>
-            
-          </tr>
-        @endforeach
+            @foreach ($cartdatas as $cartdata)
+              <tr>
+                <td>{{$cartdata->title}}</td>
+                <td>{{$cartdata->price}}</td>
+                <td>{{$cartdata->quantity}}</td>
+                
+              </tr>
+            @endforeach
 
-        @foreach ($datas as $data)
-        <tr style="position: relative; top: -105px; right: -990px;">
-          <td><a href="{{url('/deletecart', $data->id)}}" class="btn btn-danger">Delete</a></td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
+            @foreach ($datas as $data)
+            <tr style="position: relative; top: -155px; right: -990px;">
+              <td><a href="{{url('/deletecart', $data->id)}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
 
-  </div>
+    </div>
+
+  <hr>
+    <div align="center" style="padding: 10px;">
+      <button class="btn btn-primary" id="order">Order Now</button>
+    </div>
+
+    <hr>
+    <div id="appear" align="center" style="padding: 10px; display: none;">
+
+        <div class="form-group" style="padding: 10px;">
+            <label for="name" class="form-label">Name</label>
+            <input class="form-control" type="text" name="name" placeholder="Name">
+        </div>
+
+        <div class="form-group" style="padding: 10px;">
+            <label for="name">Phone Number</label>
+            <input class="form-control" type="number" name="phone" placeholder="Phone Number">
+        </distyle=>
+
+        <div class="form-group"  <div style="padding: 10px;">
+          <label for="name">Address</label>
+          <input class="form-control" type="text" name="address" placeholder="Address">
+        </div>
+    
+        <div class="form-group" style="padding: 10px;">
+          <input class="btn btn-success" type="submit" value="Confirm Order">
+        </div>
+        <div>
+          <button id="close" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>  
 
 
+ 
 
+
+    <script type="text/javascript">
+
+        $("#order").click(
+            function()
+            {
+              $("#appear").show();
+            }
+        );  
+
+        $("#close").click(
+            function()
+            {
+              $("#appear").hide();
+            }
+        );  
+
+    </script>
 
   
     <!-- jQuery -->
@@ -163,6 +213,8 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- Bootstrap -->
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
     <!-- Plugins -->
     <script src="assets/js/owl-carousel.js"></script>
