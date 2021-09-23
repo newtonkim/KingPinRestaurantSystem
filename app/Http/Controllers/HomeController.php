@@ -30,13 +30,14 @@ class HomeController extends Controller
         else
         {
             $user_id = Auth::id();
+
             $count = Cart::where('user_id',$user_id)->count();
 
             return view('home', compact('users', 'chefs', 'count'));
         }
     }
 
-    public function addcart(Request $request, $id)
+    public function addcart(Request $request, $id) 
     {
         // Get the currently authenticated user's ID...
         if(Auth::id())
@@ -66,10 +67,19 @@ class HomeController extends Controller
 
     public function showcart(Request $request, $id)
     {
-        $count = Cart::where('user_id', $id)->count();
+        $count = Cart::where('user_id', '=', $id)->count();
+
+        $datas = Cart::select('*')->where('user_id', $id)->get();
 
         $cartdatas = Cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
 
-        return view('showcart', compact('count', 'cartdatas'));
+        return view('showcart', compact('count', 'cartdatas', 'datas'));
+    }
+
+    public function deletecart($id)
+    {
+        $users = Cart::find($id);
+        $users->delete();
+        return redirect()->back();
     }
 }

@@ -34,17 +34,6 @@ https://templatemo.com/tm-558-klassy-cafe
     
     <body>
     
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-    
-    
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -85,13 +74,13 @@ https://templatemo.com/tm-558-klassy-cafe
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
 
-                            <li class="scroll-to-section">
+                            <li class="scroll-to-section" style="background-color: grey">
                                 
                                 @auth
                                 
                                 <a href="{{url('/showcart', Auth::user()->id)}}">
 
-                                    Cart[{{$count}}]
+                                    Cart{{$count}}
 
                                 </a>
                                     @endauth
@@ -141,6 +130,7 @@ https://templatemo.com/tm-558-klassy-cafe
           <th scope="col">Food Name</th>
           <th scope="col">Price</th>
           <th scope="col">Quantity</th>
+          <th scope="col">Action</th>
       </thead>
       <tbody>
 
@@ -149,7 +139,14 @@ https://templatemo.com/tm-558-klassy-cafe
             <td>{{$cartdata->title}}</td>
             <td>{{$cartdata->price}}</td>
             <td>{{$cartdata->quantity}}</td>
+            
           </tr>
+        @endforeach
+
+        @foreach ($datas as $data)
+        <tr style="position: relative; top: -105px; right: -990px;">
+          <td><a href="{{url('/deletecart', $data->id)}}" class="btn btn-danger">Delete</a></td>
+        </tr>
         @endforeach
       </tbody>
     </table>
@@ -159,6 +156,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
 
 
+  
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 

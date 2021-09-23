@@ -33,6 +33,7 @@ Route::get('/updatemenu/{id}', [AdminController::class, 'updatemenu']);
 Route::get('/redirects', [HomeController::class, 'redirects']);
 Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 Route::get('/showcart/{id}', [HomeController::class, 'showcart']);
+Route::get('/deletecart/{id}', [HomeController::class, 'deletecart']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
