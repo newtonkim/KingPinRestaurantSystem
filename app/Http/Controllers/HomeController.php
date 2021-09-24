@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Chef;
 use App\Models\Food;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,6 +81,30 @@ class HomeController extends Controller
     {
         $users = Cart::find($id);
         $users->delete();
+        return redirect()->back();
+    }
+
+    public function confirmorder(Request $request)
+    {
+        foreach($request->foodname as $key =>$foodname)
+        {
+            $orders = new Order;
+
+            $orders->foodname = $foodname;
+
+            $orders->price = $request->price[$key];
+
+            $orders->quantity = $request->quantity[$key];
+
+            $orders->name = $request->name; 
+
+            $orders->phone = $request->phone; 
+
+            $orders->address = $request->address; 
+
+            $orders->save();
+        }
+
         return redirect()->back();
     }
 }

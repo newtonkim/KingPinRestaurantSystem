@@ -34,6 +34,7 @@ Route::get('/redirects', [HomeController::class, 'redirects']);
 Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 Route::get('/showcart/{id}', [HomeController::class, 'showcart']);
 Route::get('/deletecart/{id}', [HomeController::class, 'deletecart']);
+Route::post('/confirmorder', [HomeController::class, 'confirmorder']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
