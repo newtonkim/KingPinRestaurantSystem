@@ -35,6 +35,9 @@ Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 Route::get('/showcart/{id}', [HomeController::class, 'showcart']);
 Route::get('/deletecart/{id}', [HomeController::class, 'deletecart']);
 Route::post('/confirmorder', [HomeController::class, 'confirmorder']);
+Route::get('/orders', [AdminController::class, 'orders']);
+Route::get('/updateorder/{id}', [AdminController::class, 'updateorder']);
+Route::post('/customerupdateorder/{id}', [AdminController::class, 'customerupdateorder']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

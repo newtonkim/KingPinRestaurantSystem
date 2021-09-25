@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chef;
 use App\Models\Food;
+use App\Models\Order;
 use App\Models\User;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -187,5 +188,41 @@ class AdminController extends Controller
         $users = Chef::find($id);
         $users->delete();
         return redirect()->back();
+    }
+
+    public function orders()
+    {
+        $orders = Order::all();
+
+        return view('admin.orders', compact('orders'));
+    }
+
+    public function updateorder($id)
+    {
+        $orders = Order::find($id);
+
+        return view('admin.updatecustomerorder', compact('orders'));
+    }
+
+    public function customerupdateorder(Request $request, $id)
+    {
+        $orders = Order::find($id);
+
+        $orders->name = $request->name;
+
+        $orders->phone = $request->phone;
+
+        $orders->address = $request->address;
+
+        $orders->foodname = $request->foodname;
+
+        $orders->quantity = $request->quantity;
+
+        $orders->price = $request->price;
+
+
+        $orders->save();
+
+        return redirect('/orders');
     }
 }
