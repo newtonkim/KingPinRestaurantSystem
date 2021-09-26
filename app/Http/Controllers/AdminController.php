@@ -220,9 +220,17 @@ class AdminController extends Controller
 
         $orders->price = $request->price;
 
-
         $orders->save();
 
         return redirect('/orders');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $orders = Order::where('name', 'Like', '%' .$search. '%')->orWhere('foodname', 'Like', '%' .$search. '%')->get();
+
+        return view('admin.orders',compact('orders'));
     }
 }

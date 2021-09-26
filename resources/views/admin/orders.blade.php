@@ -16,6 +16,17 @@
       <div row>
         <div class="py-2 my-5">
           <h1 class="align-text-center py-3">Customer Order</h1>
+
+          <form action="{{url('/search')}}" method="GET">
+            @csrf
+            <div class="input-group py-2 my-2">
+              <div class="form-outline">
+                <input  type="text" class="text-black" name="search" class="form-control" placeholder="Search"/>
+              </div>
+              <input type="submit" value="search" class="btn btn-primary">
+            </div>
+
+          </form>
             <table class="table">
               <thead class="thead-light">
                 <tr>
