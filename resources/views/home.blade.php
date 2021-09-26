@@ -50,14 +50,20 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
+
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+
+                            <a class="menu-trigger">
+                                <span>Menu</span>
+                            </a>
                         </a>
+
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="{{url('/')}}" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
                            	
                         <!-- 
@@ -71,7 +77,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             </li>
                         -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
+                            <li class="scroll-to-section"><a href="{{url('/chef')}}">Chefs</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Features</a>
                                 <ul>
@@ -90,7 +96,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                 
                                 <a href="{{url('/showcart', Auth::user()->id)}}">
 
-                                    Cart{{$count}}
+                                    Cart{{$count ?? ''}}
 
                                 </a>
                                     @endauth
@@ -141,7 +147,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <h4>KlassyCafe</h4>
                             <h6>THE BEST EXPERIENCE</h6>
                             <div class="main-white-button scroll-to-section">
-                                <a href="#reservation">Make A Reservation</a>
+                                <a href="#">Make A Reservation</a>
                             </div>
                         </div>
                     </div>

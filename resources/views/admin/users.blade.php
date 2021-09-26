@@ -37,7 +37,8 @@
                   <td>{{$user->name}}</td>
                   <td>{{$user->email}}</td>
                   @if($user->usertype == "0")
-                    <td><a href="{{url('/deleteuser', $user->id)}}">Delete</a></td>
+                    {{-- <td><a href="{{url('/deleteuser', $user->id)}}">Delete</a></td> --}}
+                    <td><a href="{{url('/deleteuser', $user->id)}}"><button class="btn btn-danger">Delete</button></a></td>
                   @else
                     <td>Not allowed</td>
                   @endif

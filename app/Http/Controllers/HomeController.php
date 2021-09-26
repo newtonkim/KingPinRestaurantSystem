@@ -70,11 +70,20 @@ class HomeController extends Controller
     {
         $count = Cart::where('user_id', '=', $id)->count();
 
-        $datas = Cart::select('*')->where('user_id', $id)->get();
+        if (Auth::id()==$id) {
 
-        $cartdatas = Cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
+            $datas = Cart::select('*')->where('user_id', $id)->get();
+    
+            $cartdatas = Cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
+    
+            return view('showcart', compact('count', 'cartdatas', 'datas'));
 
-        return view('showcart', compact('count', 'cartdatas', 'datas'));
+        } else {
+            
+            return redirect()->back();
+        }
+        
+
     }
 
     public function deletecart($id)

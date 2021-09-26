@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Chef;
 use App\Models\Food;
-use App\Models\Order;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -90,9 +91,17 @@ class AdminController extends Controller
 
     public function foodmenu()
     {
-        $users = Food::all();
+        if (Auth::id()) {
+            # code...
+            $users = Food::all();
+    
+            return view('admin.foodmenu', compact('users'));
 
-        return view('admin.foodmenu', compact('users'));
+        } else {
+            
+            return redirect('/login');
+        }
+        
     }
 
     public function upload(Request $request)
@@ -120,16 +129,33 @@ class AdminController extends Controller
 
     public function viewreservation()
     {
-        $users = Reservation::all();
+        if (Auth::id()) {
+
+            $users = Reservation::all();
+            
+            return view('admin.adminreservation', compact('users'));
+
+        } else {
+            
+            return redirect('login');
+        }
         
-        return view('admin.adminreservation', compact('users'));
+
     }
 
     public function chef()
     {
-        $users = Chef::all();
+        if (Auth::id()) {
+
+            $users = Chef::all();
+            
+            return view('admin.adminchef', compact('users'));
+            
+        } else {
         
-        return view('admin.adminchef', compact('users'));
+            return redirect('/login');
+        }
+        
     }
 
     public function uploadchef(Request $request)
